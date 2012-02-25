@@ -17,3 +17,4 @@ Credits
 
   * Ruby on Rails, https://github.com/rails thank you for all
   * Kohana, https://github.com/kohana
+  * Sinan Eldem, 3.2 Integration http://www.sinaneldem.com.tr

@@ -191,19 +191,24 @@ class Date extends Kohana_Date {
 	 * @param   integer  "remote" timestamp
 	 * @return  string
 	 */
-	public static function fuzzy_span($timestamp)
+	public static function fuzzy_span($timestamp, $now = NULL)
 	{
-		$now = time();
+		$now = $now ? $now : time();
 		$span = self::distance_of_time_in_words($timestamp, $now);
-		if ($timestamp <= $now)
+		if ($timestamp == $now)
+		{
+			// This is now
+			return __('now');
+		}
+		elseif ($timestamp < $now)
 		{
 			// This is in the past
-			return $span . ' ago';
+			return $span .' '. __('ago');
 		}
 		else
 		{
 			// This in the future
-			return 'in ' . $span;
+			return $span .' '. __('later');
 		}
 	}
 }
